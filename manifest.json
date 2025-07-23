@@ -1,9 +1,14 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "LinkedIn AdBlocker",
     "description": "A simple ad blocker for LinkedIn.",
     "version": "0.0.1",
     "author": "Rashu Sharda",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
     "browder_action": {
         "default_title": "LinkedIn AdBlocker"
     },
