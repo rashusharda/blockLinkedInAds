@@ -4,10 +4,10 @@
     so that we can begin to remove ads as soon as possible.
 */
 
-chrome.webNavigation.onComitted.addListener(function(tab){
+chrome.webNavigation.onCommitted.addListener(function(tab){
     // prevents script from running when other frames load
-    if (tab.frameId !== 0) {
-        chrome.tabs.query({activ: true, lastFocusedWindow: true}, tabs =>{
+    if (tab.frameId === 0) {
+        chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs =>{
 
             // get the url of the webpage
             let url = tabs[0]. url;
@@ -19,15 +19,13 @@ chrome.webNavigation.onComitted.addListener(function(tab){
 
             //Remove path and queries e.g linkedin.com/feed or linkedin.com?query-value
             //Only want the base domain
-            let domain = parseInt.Url.slice(0, parsedUrl.indexOf('/') == -1 ? parsedUrl.length: parsedUrl.indexOf('/'))
-                .slice(0, parsedUrl.indexOf('?') == -1 ? parsedUrl.length : parsedUrl.indexOf('?'));
-
+            let domain = parsedUrl.split('/')[0].split('?')[0];
             
             try {
                 if (domain.length < 1 || domain === null || domain === undefined){
                     return;
                 } else if (domain == "linkedin.com"){
-                    runLinkedinScript;
+                    runLinkedinScript();
                     return;
                 }
             } catch (err){
@@ -39,8 +37,8 @@ chrome.webNavigation.onComitted.addListener(function(tab){
 
 function runLinkedinScript(){
     // Inject script from file into the webpage
-    chrome.tabs.exectuteScript({
-        file: 'linkedin.js'
+    chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: ['linkedin.js']
     });
-    return true;
 }

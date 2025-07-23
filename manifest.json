@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "LinkedIn AdBlocker",
     "description": "A simple ad blocker for LinkedIn.",
     "version": "0.0.1",
@@ -9,17 +9,18 @@
         "48": "icon48.png",
         "128": "icon128.png"
     },
-    "browser_action": {
-        "default_title": "LinkedIn AdBlocker"
+    "action": {
+        "default_title": "LinkedIn AdBlocker",
+        "default_icon": "icon48.png"
     },
     "permissions": [
         "tabs",
-        "webNavigation",
-        "https://www.linkedin.com/"
+        "webNavigation"
+    ],
+    "host_permissions": [
+        "https://www.linkedin.com/*"
     ],
     "background": {
-        "scripts": [
-            "extension.js"
-        ]
+        "service_worker": "background.js"
     }
 }
