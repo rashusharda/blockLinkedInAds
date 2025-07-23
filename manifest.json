@@ -9,13 +9,13 @@
         "48": "icon48.png",
         "128": "icon128.png"
     },
-    "browder_action": {
+    "browser_action": {
         "default_title": "LinkedIn AdBlocker"
     },
     "permissions": [
         "tabs",
-        "webnavigation",
-        "https://www.linkedin/com/"
+        "webNavigation",
+        "https://www.linkedin.com/"
     ],
     "background": {
         "scripts": [
