@@ -4,12 +4,6 @@
 
 ---
 
-## 📸 Screenshots
-
-Coming soon — watch this space for before & after comparisons
-
----
-
 ## ⚡ Features
 
 - 🔍 Detects and removes LinkedIn sponsored posts from your feed
