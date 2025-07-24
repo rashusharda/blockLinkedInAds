@@ -1,6 +1,6 @@
 # 🚫 LinkedIn AdBlocker
 
-**A sleek and lightweight browser extension that silently cleans up your LinkedIn feed by removing sponsored content and unwanted distractions. Built for focus, speed, and elegance.**
+**A lightweight browser extension that silently cleans up your LinkedIn feed by removing sponsored content and unwanted distractions.**
 
 ---
 
@@ -15,7 +15,7 @@ Coming soon — watch this space for before & after comparisons
 - 🔍 Detects and removes LinkedIn sponsored posts from your feed
 - 🧹 Improves readability and page performance by eliminating ad-heavy elements
 - 🧠 Minimalist design — no popups, no fuss
-- 🔒 Secure by design — only accesses LinkedIn feed and uses least privileges required
+- 🔒 Secure by design — only accesses LinkedIn feed and uses the least privileges required
 
 ---
 
