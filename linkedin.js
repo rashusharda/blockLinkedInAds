@@ -1,35 +1,33 @@
 function removeAds(){
 
     //Get all 'span' elements on the page
-    let spans = document.getElementsByTagName('span');
+    const spans = document.querySelectorAll("span");
 
-    for (let i = 0; i < spans.length; i++){
-        //Check if they contain the text 'Promoted'
-        if (spans[i].innerHTML === 'Promoted') {
-            
-            // Get the div that wraps around the entire add
-            let card = spans[i].closest(".feed-shared-update-v2");
+    spans.forEach(span => {
+        if (span.textContent.trim().toLowerCase() === "promoted") {
+        let card = span.closest("div[data-urn]");
 
-            // If the class changed and we can't find it with cloest(), get the 6th parent
-            if (card === null){
-                ///Could also be card.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.
-                let j = 0;
-                card = spans[i];
-                while (j<6){
-                    card = card.parentNode;
-                    ++j;
-                }
+        // Fallback if closest doesn't work
+        if (!card) {
+            let node = span;
+            for (let i = 0; i < 6; i++) {
+            if (node.parentNode) node = node.parentNode;
             }
-
-            // Make the ad disappear
-            card.setAttribute("style", "display: none !important");
+            card = node;
         }
-    }
+
+        if (card) {
+            card.style.display = "none";
+            console.log("Ad removed:", card);
+        }
+        }
+    });
 }
 
+// Run once on load
 removeAds();
 
-//enure ads will be removed as the user scrolls
-setInterval;(function(){
-    removeAds();
-}, 100)
+// Run repeatedly as new posts appear while scrolling
+setInterval(() => {
+  removeAds();
+}, 1000);
